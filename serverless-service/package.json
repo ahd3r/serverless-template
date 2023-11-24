@@ -1,0 +1,56 @@
+{
+  "name": "template",
+  "version": "0.0.1",
+  "description": "Serverless template",
+  "main": "index.ts",
+  "scripts": {
+    "test-unit": "jest --config ./test/unit/jest.json --detectOpenHandles --forceExit",
+    "test-integration": "cucumber-js test --publish-quiet --require-module ts-node/register --require test/integration/*.ts",
+    "test-e2e": "jest --config ./test/e2e/jest.json --detectOpenHandles --forceExit",
+    "test": "echo 'CHECK YOU DEFINE A TEST_LINK FOR APP, WHICH YOU NEED TO TEST!' && npm run test-unit && cross-env TEST_LINK=blabla npm run test-integration && cross-env TEST_LINK=blabla npm run test-e2e",
+    "lint": "eslint './**/*.{js,ts}' --fix",
+    "format": "prettier './**/*.{js,ts}' --write",
+    "deploy": "sls deploy --verbose"
+  },
+  "author": "Church-Man",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^8.5.2",
+    "@types/aws-lambda": "^8.10.62",
+    "@types/jest": "^28.1.4",
+    "@types/node": "^18.0.3",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.14.49",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "expect": "^29.0.1",
+    "husky": "8.0.1",
+    "jest": "^28.1.2",
+    "prettier": "^2.7.1",
+    "serverless-esbuild": "^1.31.0",
+    "serverless-latest-layer-version": "^2.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@middy/core": "^3.1.0",
+    "@middy/http-error-handler": "^3.1.0",
+    "@middy/http-json-body-parser": "^3.1.0",
+    "aws-sdk": "^2.1205.0",
+    "axios": "^0.27.2",
+    "pino": "^8.4.2",
+    "pino-pretty": "^9.1.0",
+    "uuid": "^8.3.2",
+    "zod": "^3.17.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint",
+      "pre-push": "tsc --noEmit"
+    }
+  }
+}

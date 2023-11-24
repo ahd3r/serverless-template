@@ -1,0 +1,12 @@
+name: Run global e2e test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_tests:
+    name: Run global e2e
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      run: echo hi

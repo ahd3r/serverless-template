@@ -1,0 +1,1 @@
+Endpoints that return 202 status code

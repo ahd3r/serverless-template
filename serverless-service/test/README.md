@@ -1,0 +1,1 @@
+Since this serverless service provides template for a number of lambda functions, you need to test only specific functions and for this you need only unit tests. There is no endpoints, only function. Endpoints appear on AWS Api Gateway only and there you will use global e2e test with cucumber lib.

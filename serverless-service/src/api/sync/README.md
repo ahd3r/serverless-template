@@ -1,0 +1,1 @@
+Endpoints that return non 202 status code

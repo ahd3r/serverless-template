@@ -1,0 +1,1 @@
+Lambdas that uses in a chain of processing, another lambda might be a trigger for this one

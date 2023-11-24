@@ -1,0 +1,23 @@
+name: Deploy to Serverless infrastructure
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  deploy_dev_serverless:
+    name: Deploying back
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/dev'
+    steps:
+    - name: test
+      run: echo hi
+  deploy_prod_serverless:
+    name: Deploying back
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: test
+      run: echo hi
